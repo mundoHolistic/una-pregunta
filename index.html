@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pensá una pregunta y recibí una respuesta gratuita: sí, no o todavía no.">
+  <meta name="theme-color" content="#f6efe9">
+  <title>Una pregunta — Sí, No o Todavía no</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" data-reset>UNA PREGUNTA</a>
+      <button class="text-button" type="button" data-reset>Otra pregunta</button>
+    </header>
+
+   <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Una Pregunta</title>
+  <meta
+    name="description"
+    content="Una pausa. Una pregunta. Una respuesta para mirar desde otro lugar."
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header class="topbar">
+      <div class="brand">Una Pregunta</div>
+
+      <button type="button" data-reset>
+        NUEVA PREGUNTA
+      </button>
+    </header>
+
+
+    <!-- =====================================================
+         PANTALLA INICIAL
+         ===================================================== -->
+
+    <section
+      class="screen screen-home is-active"
+      id="home"
+      aria-labelledby="main-title"
+    >
+
+      <div class="intro">
+
+        <p class="eyebrow">
+          Una pausa. Una pregunta.
+        </p>
+
+        <h1 id="main-title">
+          Pensá una pregunta.
+        </h1>
+
+        <p class="lead">
+          No hace falta escribirla.<br>
+          Cuando la tengas, revelá la respuesta.
+        </p>
+
+        <button
+          class="reveal-button"
+          id="revealBtn"
+          type="button"
+        >
+          <span>REVELAR</span>
+        </button>
+
+        <p class="microcopy">
+          Una experiencia gratuita para mirar tu pregunta desde otro lugar.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PANTALLA DE RESPUESTA
+         ===================================================== -->
+
+    <section
+      class="screen screen-reveal"
+      id="reveal"
+      aria-live="polite"
+    >
+
+      <div class="reveal-wrap">
+
+        <!-- Mientras piensa -->
+        <div
+          class="thinking-area"
+          id="thinkingArea"
+        >
+
+          <p
+            class="eyebrow"
+            id="thinkingText"
+          >
+            Buscando una respuesta
+          </p>
+
+          <div
+            class="dots"
+            id="dots"
+          >
+            · · ·
+          </div>
+
+        </div>
+
+
+        <!-- Resultado -->
+        <div
+          class="result-box"
+          id="resultBox"
+          hidden
+        >
+
+          <p class="result-kicker">
+            ✦ Tu respuesta ✦
+          </p>
+
+          <h2 id="resultTitle">
+            SÍ
+          </h2>
+
+          <p class="result-note">
+            Tu respuesta es solo el comienzo.
+          </p>
+
+
+          <!-- ORÁCULO -->
+          <div class="oracle-box">
+
+            <p class="oracle-intro">
+              Si esta pregunta te quedó dando vueltas,
+              podés recibir un mensaje más completo...
+            </p>
+
+            <h3>
+              ¿Querés recibir el mensaje del oráculo?
+            </h3>
+
+            <p class="oracle-energy">
+              El intercambio es voluntario: vos elegís cuánto
+              aportar por este mensaje.
+              Es una forma de poner en movimiento la energía
+              de dar y recibir:
+              <strong>
+                todo lo que das, vuelve multiplicado.
+              </strong>
+            </p>
+
+
+            <!-- PAGOS -->
+            <div class="payment-grid">
+
+              <a
+                class="payment-card payment-mp"
+                id="mercadoPagoLink"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span class="payment-label">
+                  Argentina
+                </span>
+
+                <strong>
+                  Mercado Pago
+                </strong>
+
+                <small>
+                  Elegí tu aporte
+                </small>
+
+              </a>
+
+
+              <a
+                class="payment-card payment-paypal"
+                id="paypalLink"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <span class="payment-label">
+                  Internacional
+                </span>
+
+                <strong>
+                  PayPal
+                </strong>
+
+                <small>
+                  Elegí tu aporte
+                </small>
+
+              </a>
+
+            </div>
+
+
+            <!-- DESPUÉS DEL PAGO -->
+            <div
+              class="after-payment"
+              id="afterPayment"
+            >
+
+              <div class="divider">
+                <span>
+                  después del pago
+                </span>
+              </div>
+
+              <p>
+                Completá el formulario del oráculo
+                para recibir tu mensaje.
+              </p>
+
+              <a
+                class="form-button"
+                id="oracleFormLink"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                COMPLETAR FORMULARIO
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <!-- OTRA PREGUNTA -->
+          <button
+            class="again-button"
+            type="button"
+            data-reset
+          >
+            HACER OTRA PREGUNTA
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PIE
+         ===================================================== -->
+
+    <footer class="footer">
+
+      <span>
+        © <span id="year"></span> Una Pregunta
+      </span>
+
+      <span>
+        Experiencia gratuita
+      </span>
+
+    </footer>
+
+  </main>
+
+
+  <script src="app.js"></script>
+
+</body>
+</html>

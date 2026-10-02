@@ -1,0 +1,1497 @@
+/* =========================================================
+   UNA PREGUNTA
+   DOODLE ART + KAWAII
+   Diseño responsive
+   Sin librerías ni herramientas externas
+   ========================================================= */
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+  --fondo: #f7e8f2;
+  --fondo-secundario: #eee5f7;
+  --blanco: #fffdfb;
+  --negro: #17151a;
+
+  --rosa: #f3a9c8;
+  --rosa-fuerte: #e77eae;
+  --lila: #c8b7e8;
+  --amarillo: #f8df91;
+  --verde: #b9dcb8;
+
+  --sombra: 5px 5px 0 var(--negro);
+
+  --radio-grande: 28px;
+  --radio-medio: 20px;
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(255,255,255,.65) 0 35px,
+      transparent 36px
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(255,255,255,.45) 0 50px,
+      transparent 51px
+    ),
+    var(--fondo);
+
+  color: var(--negro);
+
+  font-family:
+    "Trebuchet MS",
+    Arial,
+    sans-serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+   ========================================================= */
+
+.app {
+  width: min(100%, 720px);
+
+  margin: 0 auto;
+
+  padding:
+    18px
+    18px
+    50px;
+
+  position: relative;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+   ========================================================= */
+
+.topbar {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 30px;
+}
+
+.brand {
+  font-size: 15px;
+
+  font-weight: 900;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+.topbar button {
+  appearance: none;
+
+  border: 2px solid var(--negro);
+
+  background: var(--blanco);
+
+  color: var(--negro);
+
+  border-radius: 999px;
+
+  padding:
+    9px
+    15px;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+
+  box-shadow:
+    2px 2px 0 var(--negro);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.topbar button:hover {
+  transform:
+    translate(-1px, -1px);
+
+  box-shadow:
+    4px 4px 0 var(--negro);
+}
+
+
+/* =========================================================
+   PANTALLAS
+   IMPORTANTE:
+   LA APLICACIÓN UTILIZA .is-active
+   ========================================================= */
+
+.screen {
+  display: none;
+
+  width: 100%;
+}
+
+.screen.is-active {
+  display: block;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.intro,
+.reveal-wrap {
+  width: 100%;
+
+  max-width: 680px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.intro {
+  min-height: 65vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+
+  padding:
+    35px
+    10px
+    45px;
+}
+
+
+/* =========================================================
+   DOODLES GENERALES
+   ========================================================= */
+
+.intro::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: 5%;
+  left: 8%;
+
+  font-size: 32px;
+
+  transform:
+    rotate(-12deg);
+
+  animation:
+    doodleTwinkle 2.8s ease-in-out infinite;
+}
+
+.intro::after {
+  content: "♡";
+
+  position: absolute;
+
+  right: 7%;
+  bottom: 10%;
+
+  font-size: 34px;
+
+  transform:
+    rotate(10deg);
+
+  animation:
+    doodleFloatSlow 3.8s ease-in-out infinite;
+}
+
+.reveal-wrap {
+  position: relative;
+
+  padding:
+    25px
+    10px
+    50px;
+}
+
+.reveal-wrap::before {
+  content: "·  ✧  ·";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 19px;
+
+  letter-spacing: 8px;
+
+  animation:
+    doodleBlink 2.4s ease-in-out infinite;
+}
+
+.reveal-wrap::after {
+  content: "♡";
+
+  position: absolute;
+
+  top: 20%;
+  right: 4%;
+
+  font-size: 28px;
+
+  animation:
+    doodleSpin 6s linear infinite;
+}
+
+
+/* =========================================================
+   ETIQUETAS
+   ========================================================= */
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 18px;
+
+  padding:
+    7px
+    12px;
+
+  background:
+    var(--amarillo);
+
+  border:
+    2px solid var(--negro);
+
+  border-radius: 999px;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  transform:
+    rotate(-2deg);
+
+  box-shadow:
+    3px 3px 0 rgba(23,21,26,.15);
+}
+
+
+/* =========================================================
+   TITULOS
+   ========================================================= */
+
+h1,
+h2 {
+  margin: 0;
+
+  line-height: .95;
+
+  letter-spacing: -.04em;
+}
+
+h1 {
+  width: 100%;
+
+  max-width: 600px;
+
+  margin:
+    0
+    auto;
+
+  font-size:
+    clamp(
+      48px,
+      11vw,
+      82px
+    );
+
+  font-weight: 900;
+
+  text-align: center;
+}
+
+h2 {
+  font-size:
+    clamp(
+      38px,
+      9vw,
+      62px
+    );
+}
+
+
+/* =========================================================
+   TEXTO INTRODUCTORIO
+   ========================================================= */
+
+.subtitle,
+.lead {
+  width: 100%;
+
+  max-width: 560px;
+
+  margin:
+    22px
+    auto
+    0;
+
+  font-size: 17px;
+
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+.microcopy {
+  max-width: 360px;
+
+  margin:
+    18px
+    auto
+    0;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  opacity: .7;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+button,
+.button {
+  font-family: inherit;
+}
+
+.primary-button,
+.reveal-button {
+  width:
+    min(
+      100%,
+      420px
+    );
+
+  min-height: 66px;
+
+  margin:
+    28px
+    auto
+    0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    3px solid
+    var(--negro);
+
+  border-radius: 18px;
+
+  background:
+    var(--negro);
+
+  color:
+    white;
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+  letter-spacing: .04em;
+
+  cursor: pointer;
+
+  box-shadow:
+    5px 5px 0
+    var(--rosa-fuerte);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.primary-button:hover,
+.reveal-button:hover {
+  transform:
+    translate(-2px, -2px)
+    rotate(-.5deg);
+
+  box-shadow:
+    7px 7px 0
+    var(--rosa-fuerte);
+}
+
+.primary-button:active,
+.reveal-button:active {
+  transform:
+    translate(3px, 3px);
+
+  box-shadow:
+    2px 2px 0
+    var(--rosa-fuerte);
+}
+
+
+/* =========================================================
+   BOTÓN REVELAR — PEQUEÑO MOVIMIENTO
+   ========================================================= */
+
+.reveal-button:not(:disabled) {
+  animation:
+    buttonWiggle 4s ease-in-out infinite;
+}
+
+@keyframes buttonWiggle {
+
+  0%,
+  88%,
+  100% {
+    transform: rotate(0);
+  }
+
+  90% {
+    transform: rotate(-1deg);
+  }
+
+  92% {
+    transform: rotate(1deg);
+  }
+
+  94% {
+    transform: rotate(0);
+  }
+}
+
+
+/* =========================================================
+   RESULTADO
+   ========================================================= */
+
+.result-wrapper {
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  position: relative;
+
+  padding:
+    18px
+    0
+    10px;
+}
+
+.result-wrapper::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: 25px;
+  left: 12%;
+
+  font-size: 25px;
+
+  animation:
+    doodleTwinkle 2.5s ease-in-out infinite;
+}
+
+.result-wrapper::after {
+  content: "✧";
+
+  position: absolute;
+
+  top: 75px;
+  right: 11%;
+
+  font-size: 24px;
+
+  animation:
+    doodleSpin 5s linear infinite;
+}
+
+
+/* =========================================================
+   "TU RESPUESTA"
+   ========================================================= */
+
+.result-label {
+  margin:
+    0
+    0
+    6px;
+
+  font-size: 11px;
+
+  font-weight: 900;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
+
+  opacity: .6;
+}
+
+
+/* =========================================================
+   RESULTADO PRINCIPAL
+   ========================================================= */
+
+.result {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width:
+    min(
+      90vw,
+      420px
+    );
+
+  min-height: 155px;
+
+  margin:
+    18px
+    auto
+    28px;
+
+  padding:
+    25px
+    30px;
+
+  border:
+    4px solid
+    var(--negro);
+
+  border-radius: 34px;
+
+  background:
+    var(--lila);
+
+  color:
+    var(--negro);
+
+  font-size:
+    clamp(
+      58px,
+      15vw,
+      105px
+    );
+
+  font-weight: 900;
+
+  line-height: .9;
+
+  letter-spacing: -.06em;
+
+  box-shadow:
+    7px 7px 0
+    var(--negro);
+
+  transform:
+    rotate(-2deg);
+
+  position: relative;
+
+  z-index: 2;
+}
+
+
+/* pequeños adornos alrededor del resultado */
+
+.result::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: -19px;
+  right: 22px;
+
+  font-size: 27px;
+
+  animation:
+    doodleTwinkle 2s ease-in-out infinite;
+}
+
+.result::after {
+  content: "♡";
+
+  position: absolute;
+
+  bottom: -21px;
+  left: 22px;
+
+  font-size: 28px;
+
+  animation:
+    doodleFloatSlow 3.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE RESULTADO
+   ========================================================= */
+
+.reveal-animation {
+  animation:
+    doodlePop
+    .65s
+    cubic-bezier(.2, 1.4, .4, 1)
+    forwards;
+}
+
+@keyframes doodlePop {
+  0% {
+    opacity: 0;
+    transform: scale(.55) rotate(-5deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.08) rotate(2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-2deg);
+  }
+}
+
+/* =========================================================
+   TEXTO "BUSCANDO..."
+   ========================================================= */
+
+#thinkingText {
+  margin-bottom: 8px;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: 0;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  letter-spacing: .15em;
+
+  opacity: .65;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE ESPERA
+   ========================================================= */
+
+.thinking-animation {
+  animation:
+    doodleFloat
+    1.4s
+    ease-in-out
+    infinite;
+}
+
+@keyframes doodleFloat {
+
+  0% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+
+  50% {
+    transform:
+      translateY(-7px)
+      rotate(1deg);
+  }
+
+  100% {
+    transform:
+      translateY(0)
+      rotate(-1deg);
+  }
+}
+
+
+/* =========================================================
+   PUNTITOS
+   ========================================================= */
+
+#dots {
+  font-size: 30px;
+
+  font-weight: 900;
+
+  letter-spacing: 7px;
+
+  min-height: 45px;
+
+  animation:
+    dotsPulse
+    1.2s
+    ease-in-out
+    infinite;
+}
+
+@keyframes dotsPulse {
+
+  0%,
+  100% {
+    opacity: .35;
+
+    transform:
+      scale(.95);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.1);
+  }
+}
+
+
+/* =========================================================
+   CTA ORÁCULO
+   ========================================================= */
+
+.oracle-box {
+  width: 100%;
+
+  max-width: 560px;
+
+  margin:
+    46px
+    auto
+    0;
+
+  padding:
+    30px
+    25px;
+
+  background:
+    var(--fondo-secundario);
+
+  border:
+    3px solid
+    var(--negro);
+
+  border-radius:
+    25px;
+
+  text-align: center;
+
+  position: relative;
+
+  box-shadow:
+    4px 4px 0
+    rgba(23,21,26,.18);
+}
+
+.oracle-box::before {
+  content: "✦";
+
+  position: absolute;
+
+  top: -18px;
+  left: 25px;
+
+  font-size: 28px;
+
+  animation:
+    doodleTwinkle
+    2.2s
+    ease-in-out
+    infinite;
+}
+
+.oracle-box::after {
+  content: "♡";
+
+  position: absolute;
+
+  bottom: -20px;
+  right: 27px;
+
+  font-size: 30px;
+
+  animation:
+    doodleFloatSlow
+    3.5s
+    ease-in-out
+    infinite;
+}
+
+.oracle-box h3 {
+  margin:
+    0
+    0
+    14px;
+
+  font-size:
+    clamp(
+      22px,
+      5vw,
+      30px
+    );
+
+  line-height: 1.1;
+}
+
+.oracle-box p {
+  width: 100%;
+
+  max-width: 430px;
+
+  margin:
+    0
+    auto;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  opacity: .75;
+}
+
+
+/* =========================================================
+   PAGOS
+   ========================================================= */
+
+.payment-options {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 14px;
+
+  width: 100%;
+
+  margin-top: 25px;
+}
+
+.payment-card {
+  display: block;
+
+  padding:
+    20px;
+
+  background:
+    var(--blanco);
+
+  color:
+    var(--negro);
+
+  border:
+    3px solid
+    var(--negro);
+
+  border-radius:
+    18px;
+
+  text-decoration: none;
+
+  box-shadow:
+    4px 4px 0
+    var(--negro);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.payment-card:hover {
+  transform:
+    translate(-2px, -2px)
+    rotate(-.5deg);
+
+  box-shadow:
+    6px 6px 0
+    var(--negro);
+}
+
+.payment-card strong {
+  display: block;
+
+  font-size: 16px;
+
+  margin-bottom: 7px;
+}
+
+.payment-card span {
+  display: block;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  opacity: .75;
+}
+
+
+/* =========================================================
+   FORMULARIO
+   ========================================================= */
+
+.after-payment {
+  margin-top: 20px;
+
+  padding:
+    22px;
+
+  border:
+    3px dashed
+    var(--negro);
+
+  border-radius:
+    20px;
+
+  background:
+    var(--verde);
+
+  position: relative;
+}
+
+.after-payment::before {
+  content: "✎";
+
+  position: absolute;
+
+  top: -18px;
+  right: 20px;
+
+  font-size: 27px;
+
+  transform:
+    rotate(10deg);
+}
+
+.after-payment p {
+  margin:
+    0
+    0
+    15px;
+
+  font-size: 13px;
+
+  line-height: 1.45;
+}
+
+.form-button {
+  display: block;
+
+  width: 100%;
+
+  padding:
+    15px;
+
+  background:
+    var(--blanco);
+
+  color:
+    var(--negro);
+
+  border:
+    2px solid
+    var(--negro);
+
+  border-radius:
+    14px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  letter-spacing: .04em;
+
+  box-shadow:
+    3px 3px 0
+    var(--negro);
+
+  transition:
+    transform .15s ease;
+}
+
+.form-button:hover {
+  transform:
+    translate(-1px, -1px);
+}
+
+
+/* =========================================================
+   SEPARADOR
+   ========================================================= */
+
+.divider {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin:
+    34px
+    0;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: .08em;
+
+  opacity: .65;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+
+  flex: 1;
+
+  height: 2px;
+
+  background:
+    var(--negro);
+
+  opacity: .5;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  padding:
+    35px
+    5px
+    0;
+
+  text-align: center;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  opacity: .65;
+}
+
+
+/* =========================================================
+   ANIMACIONES DOODLE
+   ========================================================= */
+
+@keyframes doodleTwinkle {
+
+  0%,
+  100% {
+    opacity: .45;
+
+    transform:
+      scale(.9)
+      rotate(-8deg);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      scale(1.18)
+      rotate(8deg);
+  }
+}
+
+@keyframes doodleFloatSlow {
+
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-8deg);
+  }
+
+  50% {
+    transform:
+      translateY(-8px)
+      rotate(8deg);
+  }
+}
+
+@keyframes doodleBlink {
+
+  0%,
+  100% {
+    opacity: .35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes doodleSpin {
+
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .app {
+    width: 100%;
+
+    padding:
+      20px
+      18px
+      40px;
+  }
+
+  .intro {
+    min-height: 68vh;
+
+    padding:
+      30px
+      5px
+      40px;
+  }
+
+  .intro,
+  .reveal-wrap {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size:
+      clamp(
+        42px,
+        11vw,
+        68px
+      );
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .reveal-button {
+    width: 100%;
+
+    max-width: 380px;
+  }
+
+  .result {
+    min-height: 145px;
+
+    font-size:
+      clamp(
+        55px,
+        15vw,
+        90px
+      );
+  }
+
+  .result-wrapper::before {
+    left: 6%;
+  }
+
+  .result-wrapper::after {
+    right: 5%;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — CELULAR
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .app {
+    padding:
+      16px
+      14px
+      35px;
+  }
+
+  .topbar {
+    margin-bottom: 20px;
+  }
+
+  .intro {
+    min-height: 70vh;
+
+    padding:
+      25px
+      4px
+      35px;
+  }
+
+  .intro::before {
+    top: 3%;
+    left: 3%;
+
+    font-size: 25px;
+  }
+
+  .intro::after {
+    right: 2%;
+    bottom: 6%;
+
+    font-size: 29px;
+  }
+
+  h1 {
+    font-size:
+      clamp(
+        40px,
+        14vw,
+        58px
+      );
+
+    line-height: .95;
+  }
+
+  .intro .lead {
+    font-size: 15px;
+
+    line-height: 1.45;
+
+    max-width: 330px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+
+    padding:
+      6px
+      10px;
+  }
+
+  .reveal-button {
+    width: 100%;
+
+    min-height: 60px;
+
+    margin-top: 24px;
+  }
+
+  .microcopy {
+    max-width: 300px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .reveal-wrap {
+    padding:
+      25px
+      0
+      40px;
+  }
+
+  .result {
+    width:
+      min(
+        88vw,
+        360px
+      );
+
+    min-height: 130px;
+
+    padding:
+      22px
+      20px;
+
+    font-size: 58px;
+
+    border-radius: 28px;
+
+    box-shadow:
+      6px 6px 0
+      var(--negro);
+  }
+
+  .result-wrapper::before {
+    top: 20px;
+    left: 2%;
+
+    font-size: 20px;
+  }
+
+  .result-wrapper::after {
+    top: 70px;
+    right: 2%;
+
+    font-size: 20px;
+  }
+
+  .oracle-box {
+    margin-top: 40px;
+
+    padding:
+      26px
+      18px;
+  }
+
+  .oracle-box h3 {
+    font-size: 23px;
+  }
+
+  .oracle-box p {
+    font-size: 13px;
+  }
+
+  .payment-options {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    margin-top: 22px;
+  }
+
+  .payment-card {
+    padding: 18px;
+  }
+
+  .after-payment {
+    padding:
+      20px
+      17px;
+  }
+
+  footer {
+    padding-top: 28px;
+  }
+}
+
+
+/* =========================================================
+   REDUCIR MOVIMIENTO SI EL USUARIO LO PREFIERE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: .01ms !important;
+  }
+}
+/* =========================================================
+   ANIMACIÓN SOLO PARA LA RESPUESTA
+   ========================================================= */
+
+.result-wrapper,
+.result-label,
+.result-wrapper > p,
+.oracle-box,
+.oracle-box h3,
+.oracle-box p,
+.payment-options,
+.payment-card,
+.after-payment,
+.form-button {
+  transform: none !important;
+  rotate: none !important;
+}
+
+/* La única parte inclinada */
+#resultTitle {
+  display: inline-block;
+  transform: rotate(-2deg);
+}
